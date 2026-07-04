@@ -1,0 +1,14 @@
+{
+  "entity.rat.ambient": {
+    "subtitle": "subtitles.entity.rat.ambient",
+    "sounds": [ "eclipse:entity/rat_ambient" ]
+  },
+  "entity.rat.hurt": {
+    "subtitle": "subtitles.entity.rat.hurt",
+    "sounds": [ "eclipse:entity/rat_hurt" ]
+  },
+  "entity.rat.attack": {
+    "subtitle": "subtitles.entity.rat.attack",
+    "sounds": [ "eclipse:entity/rat_attack" ]
+  }
+}
