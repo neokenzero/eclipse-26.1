@@ -1,3 +1,10 @@
 {
-  "item.eclipse.eclipse_reward": "Eclipse Reward"
+  "item.eclipse.eclipse_reward": "Eclipse Reward",
+  "item.eclipse.fire_staff": "Fire Staff",
+  "item.eclipse.backpack": "Backpack",
+  "effect.eclipse.bleeding": "Bleeding",
+  "gui.eclipse.backpack": "Your personal backpack",
+  "creativeTab.eclipse": "Eclipse Items",
+  "gui.eclipse.accessory": "Accessory Belt"
+
 }

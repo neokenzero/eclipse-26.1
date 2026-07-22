@@ -1,3 +1,7 @@
 {
-  "item.eclipse.eclipse_reward": "Благословление Затмения"
+  "item.eclipse.eclipse_reward": "Благословление Затмения",
+  "item.eclipse.fire_staff": "Огненный посох",
+  "item.eclipse.backpack": "Рюкзачок",
+  "effect.eclipse.bleeding": "Кровотечение",
+  "gui.eclipse.backpack": "Ваш личный Рюкзачок"
 }

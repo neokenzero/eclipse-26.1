@@ -6,7 +6,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.sounds.SoundEvent;
 
-public class MobSounds {
+public class ModMobSounds {
     public static final SoundEvent RAT_AMBIENT = registerSoundEvent("entity.rat.ambient");
     public static final SoundEvent RAT_HURT = registerSoundEvent("entity.rat.hurt");
     public static final SoundEvent RAT_ATTACK = registerSoundEvent("entity.rat.attack");

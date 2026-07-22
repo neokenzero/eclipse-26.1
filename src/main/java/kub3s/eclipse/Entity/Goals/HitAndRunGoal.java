@@ -50,50 +50,48 @@ public class HitAndRunGoal extends Goal {
             }
 
             case 1 -> {
-                if (mob instanceof RatEntity rat) {
-                    mob.swing(InteractionHand.MAIN_HAND);
-                    mob.doHurtTarget((ServerLevel) mob.level(), target);
+                mob.swing(InteractionHand.MAIN_HAND);
+                mob.doHurtTarget((ServerLevel) mob.level(), target);
 
-                    rat.playAttackSound();
+                mob.playAttackSound();
 
-                    if (mob.level() instanceof ServerLevel) {
-                        runTime = 100;
-                    }
-
-                    if (target instanceof Player target) {
-                        if (Math.random() <= 0.05) {
-                            target.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
-                        }
-
-                        var inventory = target.getInventory();
-
-                        for (int i = 0; i < inventory.getContainerSize(); i++) {
-
-                            var item = inventory.getItem(i);
-
-                            if (!item.isEmpty()
-                                    && item.has(DataComponents.FOOD)
-                                    && !(item.getItem() instanceof PotionItem)) {
-
-                                var stolen = item.copyWithCount(1);
-
-                                mob.setItemInHand(InteractionHand.MAIN_HAND, stolen);
-                                mob.setDropChance(EquipmentSlot.MAINHAND, 1.0F);
-
-                                item.shrink(1);
-
-                                target.sendOverlayMessage(
-                                        Component.translatable("chat.eclipse.rat.food_stolen")
-                                                .withStyle(ChatFormatting.RED)
-                                );
-
-                                break;
-                            }
-                        }
-                    }
-                    state = 2;
-                    runTime = 40;
+                if (mob.level() instanceof ServerLevel) {
+                    runTime = 100;
                 }
+
+                if (target instanceof Player target) {
+                    if (Math.random() <= 0.05) {
+                        target.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
+                    }
+
+                    var inventory = target.getInventory();
+
+                    for (int i = 0; i < inventory.getContainerSize(); i++) {
+
+                        var item = inventory.getItem(i);
+
+                        if (!item.isEmpty()
+                                && item.has(DataComponents.FOOD)
+                                && !(item.getItem() instanceof PotionItem)) {
+
+                            var stolen = item.copyWithCount(1);
+
+                            mob.setItemInHand(InteractionHand.MAIN_HAND, stolen);
+                            mob.setDropChance(EquipmentSlot.MAINHAND, 1.0F);
+
+                            item.shrink(1);
+
+                            target.sendOverlayMessage(
+                                    Component.translatable("chat.eclipse.rat.food_stolen")
+                                            .withStyle(ChatFormatting.RED)
+                            );
+
+                            break;
+                        }
+                    }
+                }
+                state = 2;
+                runTime = 40;
             }
 
             case 2 -> {

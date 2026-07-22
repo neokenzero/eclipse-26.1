@@ -1,22 +1,12 @@
 package kub3s.eclipse.Entity;
 
 import kub3s.eclipse.Entity.Goals.HitAndRunGoal;
-import kub3s.eclipse.Init.MobSounds;
+import kub3s.eclipse.Init.ModMobSounds;
 import kub3s.eclipse.Init.ModEntityTypes;
-import net.minecraft.ChatFormatting;
-import net.minecraft.core.component.DataComponents;
-import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.effect.MobEffectInstance;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
@@ -26,7 +16,6 @@ import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.feline.Cat;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.PotionItem;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
@@ -57,18 +46,18 @@ public class RatEntity extends PathfinderMob {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return MobSounds.RAT_AMBIENT;
+        return ModMobSounds.RAT_AMBIENT;
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return MobSounds.RAT_HURT;
+        return ModMobSounds.RAT_HURT;
     }
 
     public void playAttackSound() {
         this.level().playSound(null, this.getX(), this.getY(), this.getZ(),
-                MobSounds.RAT_ATTACK, SoundSource.HOSTILE, 0.5F, this.getVoicePitch());
+                ModMobSounds.RAT_ATTACK, SoundSource.HOSTILE, 0.5F, this.getVoicePitch());
     }
 
     @Override

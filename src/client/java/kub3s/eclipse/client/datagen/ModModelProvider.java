@@ -20,6 +20,18 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerators.generateFlatItem(
                 ModItems.ECLIPSE_REWARD,
                 ModelTemplates.FLAT_ITEM);
+
+        //itemModelGenerators.generateFlatItem(
+                //ModItems.BACKPACK,
+                //ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerators.generateFlatItem(
+                ModItems.MANGO,
+                ModelTemplates.FLAT_ITEM);
+
+        itemModelGenerators.generateFlatItem(
+                ModItems.MIRROR,
+                ModelTemplates.FLAT_ITEM);
     }
 
     @Override
