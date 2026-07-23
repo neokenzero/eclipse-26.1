@@ -21,8 +21,10 @@ public class EclipseClient implements ClientModInitializer {
 		AccessoryKeybind.register();
 		ModScreens.register();
 		//HudElementRegistry.attachElementAfter(VanillaHudElements.CROSSHAIR, Identifier.fromNamespaceAndPath("eclipse", "dia_aim"), (guiGraphics, deltaTracker) -> DiaAimHud.render(guiGraphics));
+
 		HudElementRegistry.attachElementAfter(VanillaHudElements.FOOD_BAR,
 				Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, "sanity"),
 				(guiGraphics, tickCounter) -> SanityHUD.render(guiGraphics));
+
 	}
 }

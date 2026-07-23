@@ -1,15 +1,11 @@
 package kub3s.eclipse;
 
-import kub3s.eclipse.Accsessory.Item.AccessoryItem;
 import kub3s.eclipse.Accsessory.System.AccessoryAttachment;
 import kub3s.eclipse.Accsessory.System.AccessoryManager;
 import kub3s.eclipse.Init.*;
 import kub3s.eclipse.Network.ModPackets;
 import kub3s.eclipse.Network.ModPayloads;
 import kub3s.eclipse.Player.Sanity.SanityAttachment;
-import kub3s.eclipse.Player.Sanity.SanityData;
-import kub3s.eclipse.Player.Sanity.SanityManager;
-import kub3s.eclipse.Player.Sanity.SanityPacket;
 import net.fabricmc.api.ModInitializer;
 
 import net.minecraft.resources.Identifier;

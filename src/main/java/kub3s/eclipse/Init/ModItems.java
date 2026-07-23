@@ -1,6 +1,8 @@
 package kub3s.eclipse.Init;
 
+import kub3s.eclipse.Accsessory.Item.AccessoryItem;
 import kub3s.eclipse.Eclipse;
+import kub3s.eclipse.Item.Backpack.BackpackItem;
 import kub3s.eclipse.Item.FireStaff;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
@@ -57,8 +59,7 @@ public class ModItems {
     public static final Item MIRROR = registerItem("mirror", properties -> new Item(properties
             .stacksTo(1)
             .fireResistant()));
-    //public static final Item BACKPACK = registerItem("backpack", properties -> new Backpack(properties
-    //        .stacksTo(1)));
+    public static final Item BACKPACK = registerItem("backpack", BackpackItem::new);
 
     public static final Item COIN = registerItem("coin", Item::new);
 
@@ -75,21 +76,19 @@ public class ModItems {
     public static final Item MANGO = registerItem("mango", properties -> new Item(properties
             .food(new FoodProperties.Builder().nutrition(4).saturationModifier(0.3F).build())));
 
-    private static Item registerItem(String name, Function<Item.Properties, Item> function) {
-        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, name),
-                function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
-                        Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, name)))));
-    }
-
     // TRADABLE
     public static final Item ACTIVE_ECTOPLASM = registerItem("active_ecliplasm", Item::new);
+
+    // ACCESSORIES
+
+    public static final Item CALMING_AMULET = registerItem("calming_amulet", AccessoryItem::new);
 
     // CREATIVE TABS
 
     public static final ResourceKey<CreativeModeTab> MOD_ITEMS = ResourceKey.create(
             BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, "mod_items_tab")
     );
-    public static final CreativeModeTab CUSTOM_CREATIVE_TAB = FabricCreativeModeTab.builder()
+    public static final CreativeModeTab ITEMS_TAB = FabricCreativeModeTab.builder()
             .icon(() -> new ItemStack(ModItems.ECLIPSE_REWARD)) //TODO: потом заменить на чё нить нормальное
             .title(Component.translatable("creativeTab.eclipse"))
             .displayItems((params, output) -> {
@@ -98,10 +97,30 @@ public class ModItems {
             })
             .build();
 
+    public static final ResourceKey<CreativeModeTab> MOD_ACCESSORIES = ResourceKey.create(
+            BuiltInRegistries.CREATIVE_MODE_TAB.key(), Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, "mod_accessories_tab")
+    );
+    public static final CreativeModeTab ACCESSORIES_TAB = FabricCreativeModeTab.builder()
+            .icon(() -> new ItemStack(ModItems.CALMING_AMULET)) //TODO: потом заменить на чё нить нормальное
+            .title(Component.translatable("creativeTab.eclipse"))
+            .displayItems((params, output) -> {
+                output.accept(CALMING_AMULET);
+            })
+            .build();
+
+    // ы
+
+    private static Item registerItem(String name, Function<Item.Properties, Item> function) {
+        return Registry.register(BuiltInRegistries.ITEM, Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, name),
+                function.apply(new Item.Properties().setId(ResourceKey.create(Registries.ITEM,
+                        Identifier.fromNamespaceAndPath(Eclipse.MOD_ID, name)))));
+    }
+
     public static void registerModItems() {
         Eclipse.LOGGER.info("Registered Mod Items for " + Eclipse.MOD_ID);
 
-        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MOD_ITEMS, CUSTOM_CREATIVE_TAB);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MOD_ITEMS, ITEMS_TAB);
+        Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, MOD_ACCESSORIES, ACCESSORIES_TAB);
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(output -> {
             output.accept(ECLIPSE_REWARD);
@@ -141,7 +160,7 @@ public class ModItems {
         });
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(output -> {
-            //output.accept(BACKPACK);
+            output.accept(BACKPACK);
         });
     }
 }
