@@ -8,7 +8,7 @@ classes/
 # eclipse
 
 *.launch
-
+oracleJdk-26/
 # idea
 
 .idea/
