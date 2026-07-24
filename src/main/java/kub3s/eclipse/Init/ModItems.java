@@ -82,6 +82,7 @@ public class ModItems {
     // ACCESSORIES
 
     public static final Item CALMING_AMULET = registerItem("calming_amulet", AccessoryItem::new);
+    public static final Item GOD_ACCESSORY = registerItem("god_accessory", AccessoryItem::new);
 
     // CREATIVE TABS
 
