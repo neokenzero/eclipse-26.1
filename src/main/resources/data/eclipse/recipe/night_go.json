@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "show_notification": true,
+  "category": "equipment",
+  "pattern": [
+    "G G",
+    "RSR",
+    "T T"
+  ],
+  "key": {
+    "G": "minecraft:glowstone",
+    "R": "eclipse:diamond_ring",
+    "S": "minecraft:stick",
+    "T": "minecraft:tinted_glass"
+  },
+  "result": {
+    "id": "eclipse:night_go",
+    "count": 1
+  }
+}

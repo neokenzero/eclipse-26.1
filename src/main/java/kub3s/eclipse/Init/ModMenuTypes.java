@@ -11,7 +11,7 @@ import net.minecraft.world.inventory.MenuType;
 
 public class ModMenuTypes {
 
-    public static final MenuType<BackpackScreenHandler> BACKPACK_MENU;
+    public static final MenuType BACKPACK_MENU;
 
     public static MenuType<AccessoryMenu> ACCESSORY_MENU;
 

@@ -34,6 +34,7 @@ public class Eclipse implements ModInitializer {
 		ModMenuTypes.register();
 		ModPayloads.register();
 		ModPackets.register();
+		ModCommands.register();
 
 		SanityAttachment.register();
 
